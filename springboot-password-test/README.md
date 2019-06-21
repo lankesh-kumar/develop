@@ -2,7 +2,7 @@
 Please run test cases using file com.lankesh.test.controller.PasswordCheckIntegrationTest in eclipse with option Run as Junit test
 
 ## Junit Test results output
-**--- test case when_passed_valid_then_sucess_response ---**
+**--- test case when_passed_valid_then_sucess_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
@@ -21,7 +21,7 @@ MockHttpServletResponse:
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_null_or_empty_then_error_response ---**
+**--- test case when_passed_null_or_empty_then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
@@ -41,7 +41,7 @@ MockHttpServletResponse:
           Cookies = []
 
 
-**--- test case when_passed_greater_than_max_length__then_error_response ---**
+**--- test case when_passed_greater_than_max_length__then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
@@ -60,7 +60,7 @@ MockHttpServletResponse:
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_invalid_then_error_response ---**
+**--- test case when_passed_invalid_then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
@@ -79,7 +79,7 @@ MockHttpServletResponse:
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_less_than_min_length__then_error_response ---**
+**--- test case when_passed_less_than_min_length__then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
@@ -98,7 +98,7 @@ MockHttpServletResponse:
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_repeating_character_then_error_response ---**
+**--- test case when_passed_repeating_character_then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /check-password-strength
