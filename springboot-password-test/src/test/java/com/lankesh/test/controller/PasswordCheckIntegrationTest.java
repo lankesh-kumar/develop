@@ -34,8 +34,8 @@ public class PasswordCheckIntegrationTest {
 	
 	@Test
 	public void when_passed_null_or_empty_then_error_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
 		.andDo(MockMvcResultHandlers.print());
@@ -43,8 +43,8 @@ public class PasswordCheckIntegrationTest {
 
 	@Test
 	public void when_passed_less_than_min_length__then_error_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "test")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "test")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
 		.andDo(MockMvcResultHandlers.print());
@@ -52,8 +52,8 @@ public class PasswordCheckIntegrationTest {
 	
 	@Test
 	public void when_passed_greater_than_max_length__then_error_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "I am greater than 12 length")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "I am greater than 12 length")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
 		.andDo(MockMvcResultHandlers.print());
@@ -61,8 +61,8 @@ public class PasswordCheckIntegrationTest {
 	
 	@Test
 	public void when_passed_repeating_character_then_error_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "repeeate17")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "repeeate17")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
 		.andDo(MockMvcResultHandlers.print());
@@ -70,8 +70,8 @@ public class PasswordCheckIntegrationTest {
 	
 	@Test
 	public void when_passed_valid_then_sucess_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "validpasw12")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "validpasw12")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isOk())
 		.andDo(MockMvcResultHandlers.print());
@@ -79,8 +79,8 @@ public class PasswordCheckIntegrationTest {
 
 	@Test
 	public void when_passed_invalid_then_error_response() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/check-password-strength")
-				.param("input", "vaLidpasw12")
+		mockMvc.perform(MockMvcRequestBuilders.get("/check-password-strength")
+				.param("password", "vaLidpasw12")
 				.contentType(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(MockMvcResultMatchers.status().isBadRequest())
 		.andDo(MockMvcResultHandlers.print());
