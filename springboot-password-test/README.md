@@ -2,117 +2,171 @@
 Please run test cases using file com.lankesh.test.controller.PasswordCheckIntegrationTest in eclipse with option Run as Junit test
 
 ## Junit Test results output
-**--- test case when_passed_valid_then_sucess_response ---**\
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[validpasw12]}
+#       Parameters = {password=[test1123]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
-
 MockHttpServletResponse:
            Status = 200
     Error message = null
-          Headers = [Content-Type:"application/json;charset=UTF-8"]
-     Content type = application/json;charset=UTF-8
-             Body = [{"code":"SUCCESS","description":"Input meets required conditions for password"}]
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"30"]
+     Content type = text/plain;charset=UTF-8
+#             Body = {"status":"password is valid"}
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_null_or_empty_then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[]}
+#       Parameters = {password=[validpasw12]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"30"]
+     Content type = text/plain;charset=UTF-8
+#             Body = {"status":"password is valid"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+          
+          
 
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /check-password-strength
+#       Parameters = {password=[aaa234]}
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+             Body = null
+    Session Attrs = {}
 MockHttpServletResponse:
            Status = 400
     Error message = null
           Headers = [Content-Type:"application/json;charset=UTF-8"]
      Content type = application/json;charset=UTF-8
-             Body = [{"code":"ERR-EMPTY","description":"Input is empty"}]
+#             Body = [{"code":"VALIDATION-ERROR","message":"Same character' aa' is repeating","severity":"ERROR"}]
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
+          
+          
 
-
-**--- test case when_passed_greater_than_max_length__then_error_response ---**\
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[I am greater than 12 length]}
+#       Parameters = {password=[]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
-
 MockHttpServletResponse:
            Status = 400
     Error message = null
           Headers = [Content-Type:"application/json;charset=UTF-8"]
      Content type = application/json;charset=UTF-8
-             Body = [{"code":"ERR-MAX-LEN","description":"Maximum of 12 Characters are allowed"}]
+#             Body = [{"code":"VALIDATION-ERROR","message":"Only small case alpha and numeric values are allowed","severity":"ERROR"},{"code":"VALIDATION-ERROR","message":"Password length must be min 5 and max 12","severity":"ERROR"}]
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_invalid_then_error_response ---**\
+
+
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[vaLidpasw12]}
+#       Parameters = {password=[I am greater than 12 length]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
-
 MockHttpServletResponse:
            Status = 400
     Error message = null
           Headers = [Content-Type:"application/json;charset=UTF-8"]
      Content type = application/json;charset=UTF-8
-             Body = [{"code":"ERR-ALPHA-NUM-ONLY","description":"Only small case alpha and numeric values are allowed"}]
+#             Body = [{"code":"VALIDATION-ERROR","message":"Same character' th' is repeating","severity":"ERROR"},{"code":"VALIDATION-ERROR","message":"Password length must be min 5 and max 12","severity":"ERROR"},{"code":"VALIDATION-ERROR","message":"Only small case alpha and numeric values are allowed","severity":"ERROR"}]
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_less_than_min_length__then_error_response ---**\
+
+
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[test]}
+#       Parameters = {password=[vaLidpasw12]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
-
 MockHttpServletResponse:
            Status = 400
     Error message = null
           Headers = [Content-Type:"application/json;charset=UTF-8"]
      Content type = application/json;charset=UTF-8
-             Body = [{"code":"ERR-MIN-LEN","description":"Minium of 5 Characters are required"}]
+ #            Body = [{"code":"VALIDATION-ERROR","message":"Only small case alpha and numeric values are allowed","severity":"ERROR"}]
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
 
-**--- test case when_passed_repeating_character_then_error_response ---**\
+
+
 MockHttpServletRequest:
       HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {password=[repeeate17]}
+#       Parameters = {password=[test]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
-
 MockHttpServletResponse:
            Status = 400
     Error message = null
           Headers = [Content-Type:"application/json;charset=UTF-8"]
      Content type = application/json;charset=UTF-8
-             Body = [{"code":"ERR-REPEAT","description":"Same character' e' is repeating more than once"}]
+#             Body = [{"code":"VALIDATION-ERROR","message":"Only small case alpha and numeric values are allowed","severity":"ERROR"},{"code":"VALIDATION-ERROR","message":"Password length must be min 5 and max 12","severity":"ERROR"}]
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
+
+
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /check-password-strength
+ #      Parameters = {password=[ttpeeatte1]}
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+             Body = null
+    Session Attrs = {}
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+     Content type = application/json;charset=UTF-8
+#             Body = [{"code":"VALIDATION-ERROR","message":"Same character' tt' is repeating","severity":"ERROR"}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /check-password-strength
+#       Parameters = {password=[repeeatte1]}
+          Headers = [Content-Type:"application/json;charset=UTF-8"]
+             Body = null
+    Session Attrs = {}
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"30"]
+     Content type = text/plain;charset=UTF-8
+ #            Body = {"status":"password is valid"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+          
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.231 s - in com.lankesh.test.controller.PasswordCheckIntegrationTest
