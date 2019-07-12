@@ -4,9 +4,9 @@ Please run test cases using file com.lankesh.test.controller.PasswordCheckIntegr
 ## Junit Test results output
 **--- test case when_passed_valid_then_sucess_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[validpasw12]}
+       Parameters = {password=[validpasw12]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
@@ -23,9 +23,9 @@ MockHttpServletResponse:
 
 **--- test case when_passed_null_or_empty_then_error_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[]}
+       Parameters = {password=[]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
@@ -43,9 +43,9 @@ MockHttpServletResponse:
 
 **--- test case when_passed_greater_than_max_length__then_error_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[I am greater than 12 length]}
+       Parameters = {password=[I am greater than 12 length]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
@@ -62,9 +62,9 @@ MockHttpServletResponse:
 
 **--- test case when_passed_invalid_then_error_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[vaLidpasw12]}
+       Parameters = {password=[vaLidpasw12]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
@@ -81,9 +81,9 @@ MockHttpServletResponse:
 
 **--- test case when_passed_less_than_min_length__then_error_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[test]}
+       Parameters = {password=[test]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
@@ -100,9 +100,9 @@ MockHttpServletResponse:
 
 **--- test case when_passed_repeating_character_then_error_response ---**\
 MockHttpServletRequest:
-      HTTP Method = POST
+      HTTP Method = GET
       Request URI = /check-password-strength
-       Parameters = {input=[repeeate17]}
+       Parameters = {password=[repeeate17]}
           Headers = [Content-Type:"application/json;charset=UTF-8"]
              Body = null
     Session Attrs = {}
