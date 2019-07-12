@@ -10,28 +10,36 @@ import org.hibernate.validator.constraintvalidation.HibernateConstraintValidator
 
 /**
  * @author Lankesh Kumar
- * @param <RepeatingCharacterConstraint>
+ * @param <RepeatingPatternConstraint>
  *
  */
-public class RepeatingCharacterValidator implements ConstraintValidator<RepeatingCharacterConstraint, String> {
+public class RepeatingPatternValidator implements ConstraintValidator<RepeatingPatternConstraint, String> {
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		//validate for same character repeating twice scenario
+		boolean result = true; 
+		//check for two characters repeating
 		char[] arr = value.toCharArray();
 		for (int i = 0; i < arr.length-1; i++) {
-			if (arr[i] == arr[i+1]) {
-				
+			String str = arr[i]+""+arr[i+1];
+			if (value.indexOf(str, i+1) != -1) {
 	            HibernateConstraintValidatorContext hibernateContext =
 	                    context.unwrap( HibernateConstraintValidatorContext.class );
 
 	                hibernateContext.disableDefaultConstraintViolation();
-	                hibernateContext.buildConstraintViolationWithTemplate( String.format("Same character' %s' is repeating more than once", arr[i]))
+	                hibernateContext.buildConstraintViolationWithTemplate( String.format("Same character' %s' is repeating", str))
 	                    .addConstraintViolation();
-				return false;
+	                
+	            result = false;    
 			}
 		}
-		return true;
+		
+		//check for three characters 
+		
+		//check for three characters repeating
+		
+		return result;
 	}
 
 

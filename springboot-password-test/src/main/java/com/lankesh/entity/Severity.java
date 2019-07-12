@@ -4,7 +4,7 @@
 package com.lankesh.entity;
 
 /**
- * @author kabal
+ * @author Lankesh Kumar
  *
  */
 public enum Severity {

@@ -4,7 +4,7 @@
 package com.lankesh.entity;
 
 /**
- * @author lchalava
+ * @author Lankesh Kumar
  *
  */
 public class Message {

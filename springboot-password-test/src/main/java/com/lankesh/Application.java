@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Main application file
- * @author Lankesh
+ * @author Lankesh Kumar
  *
  */
 @SpringBootApplication
