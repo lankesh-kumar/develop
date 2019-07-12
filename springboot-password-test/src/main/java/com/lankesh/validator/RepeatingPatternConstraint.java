@@ -30,7 +30,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RepeatingPatternConstraint {
 
-	String message() default "Same character is repeating";
+	String message() default "Same pattern is repeating";
 	
 	Class<?>[] groups() default {};
 	

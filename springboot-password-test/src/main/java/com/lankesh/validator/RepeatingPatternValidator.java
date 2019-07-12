@@ -28,7 +28,7 @@ public class RepeatingPatternValidator implements ConstraintValidator<RepeatingP
 	                    context.unwrap( HibernateConstraintValidatorContext.class );
 
 	                hibernateContext.disableDefaultConstraintViolation();
-	                hibernateContext.buildConstraintViolationWithTemplate( String.format("Same character' %s' is repeating", str))
+	                hibernateContext.buildConstraintViolationWithTemplate( String.format("Same pattern '%s' is repeating", str))
 	                    .addConstraintViolation();
 	                
 	            result = false;    
